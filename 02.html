@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독도 핵심 용어 사전</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #f1f5f9;
+        }
+
+        .category-tab.active {
+            background-color: #2563eb;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.4);
+        }
+
+        .term-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .term-card:hover {
+            transform: translateY(-4px);
+            border-color: #3b82f6;
+        }
+
+        .search-focus:focus-within {
+            ring: 2px solid #3b82f6;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white shadow-lg">
+                    <i class="fas fa-book-atlas text-xl"></i>
+                </div>
+                <h1 class="text-xl font-black tracking-tight">독도 <span class="text-blue-600">용어 사전</span></h1>
+            </div>
+            <div class="hidden md:block text-sm text-slate-400 font-medium">
+                우리 땅 독도를 이해하는 핵심 키워드
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-12">
+        <!-- Search & Filter -->
+        <div class="mb-12">
+            <div class="flex flex-col md:flex-row gap-6 items-center justify-between">
+                <div class="flex gap-2 p-1 bg-white rounded-xl shadow-sm border border-slate-200 overflow-x-auto w-full md:w-auto">
+                    <button onclick="filterCategory('all')" class="category-tab active px-6 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap" id="tab-all">전체</button>
+                    <button onclick="filterCategory('name')" class="category-tab px-6 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap text-slate-500 hover:text-blue-600" id="tab-name">명칭</button>
+                    <button onclick="filterCategory('doc')" class="category-tab px-6 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap text-slate-500 hover:text-blue-600" id="tab-doc">고문서/증거</button>
+                    <button onclick="filterCategory('event')" class="category-tab px-6 py-2 rounded-lg text-sm font-bold transition-all whitespace-nowrap text-slate-500 hover:text-blue-600" id="tab-event">인물/사건</button>
+                </div>
+                <div class="relative w-full md:w-72 search-focus bg-white rounded-xl border border-slate-200 transition-all">
+                    <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    <input type="text" id="searchInput" onkeyup="searchTerms()" placeholder="용어 검색..." class="w-full pl-12 pr-4 py-3 bg-transparent rounded-xl focus:outline-none text-sm">
+                </div>
+            </div>
+        </div>
+
+        <!-- Dictionary Grid -->
+        <div id="dictionaryGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Terms will be injected here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyState" class="hidden text-center py-20">
+            <i class="fas fa-search text-4xl text-slate-300 mb-4"></i>
+            <p class="text-slate-500">검색 결과가 없습니다.</p>
+        </div>
+    </main>
+
+    <footer class="py-12 text-center text-slate-400 text-sm">
+        <p>© 2024 독도 용어 사전 Project · 실효적 지배와 역사적 근거</p>
+    </footer>
+
+    <script>
+        const terms = [
+            // 명칭 관련
+            { category: 'name', term: '우산도 (于山島)', meaning: '삼국시대 우산국에서 유래한 독도의 옛 이름입니다.', detail: '삼국사기 등 고대 문헌에서 독도를 지칭할 때 주로 사용된 명칭입니다.', icon: 'fa-map-marker-alt' },
+            { category: 'name', term: '석도 (石島)', meaning: '1900년 대한제국 칙령 제41호에 등장하는 독도의 이름입니다.', detail: "\'돌섬(독섬)\'을 한자로 표기한 것으로, 독도가 울릉군의 관할임을 보여주는 법적 증거입니다.", icon: 'fa-mountain' },
+            { category: 'name', term: '마쓰시마 (송도, 松島)', meaning: '과거 일본이 독도를 부르던 명칭입니다.', detail: '당시 일본은 울릉도를 \'죽도(다케시마)\'라고 불렀으며, 독도는 송도라고 칭했습니다.', icon: 'fa-signature' },
+            { category: 'name', term: '리앙쿠르암 (Liancourt Rocks)', meaning: '1849년 프랑스 포경선 리앙쿠르호가 명명한 서양식 이름입니다.', detail: '제3국에 의해 붙여진 명칭이지만, 국제적으로는 중립적 표기를 위해 쓰이기도 합니다.', icon: 'fa-compass' },
+            
+            // 고문서 관련
+            { category: 'doc', term: '세종실록지리지 (1454)', meaning: '독도와 울릉도가 강원도 울진현에 속한다고 기록한 조선의 관찬서입니다.', detail: '두 섬이 서로 바라볼 수 있다는 가시성 데이터를 기록하여 지리적 인식을 증명합니다.', icon: 'fa-scroll' },
+            { category: 'doc', term: '은주시청합기 (1667)', meaning: '독도가 일본 영토 밖(조선 땅)임을 스스로 기록한 최초의 일본 문헌입니다.', detail: '일본 오키섬을 일본의 북서쪽 한계로 규정하여 독도의 주권을 간접적으로 인정했습니다.', icon: 'fa-file-alt' },
+            { category: 'doc', term: '태정관 지령 (1877)', meaning: '메이지 정부의 최고기관이 "독도는 일본과 관계없다"고 공표한 지시입니다.', detail: '일본 국가 차원에서 독도가 한국 땅임을 인정한 가장 결정적인 근거 사료 중 하나입니다.', icon: 'fa-stamp' },
+            { category: 'doc', term: '대한제국 칙령 제41호 (1900)', meaning: '고종 황제가 독도를 울릉군의 관할로 명시하여 반포한 근대 법령입니다.', detail: '근대 법체계 안에서 독도의 영토주권을 확고히 한 법적 근거입니다.', icon: 'fa-balance-scale' },
+            { category: 'doc', term: '시마네현 고시 제40호 (1905)', meaning: '일본이 독도를 불법적으로 자국 영토로 편입하려 시도한 고시입니다.', detail: '러일전쟁 중 무주지 선점론을 내세웠으나, 이미 한국이 영유권을 행사하던 주권 침탈 행위입니다.', icon: 'fa-exclamation-circle' },
+            { category: 'doc', term: 'SCAPIN 제677호 (1946)', meaning: '연합군 최고사령관이 독도를 일본 통치권에서 제외한다고 명시한 지령입니다.', detail: '전후 처리 과정에서 독도가 일본 영토가 아님을 국제적으로 확인한 중요한 문서입니다.', icon: 'fa-handshake' },
+
+            // 인물/사건
+            { category: 'event', term: '안용복', meaning: '일본에 건너가 울릉도와 독도가 조선 땅임을 강력히 주장한 어부입니다.', detail: "일본 막부로부터 \'울릉도 도해 금지령\'을 이끌어내어 조선의 주권을 지켰습니다.", icon: 'fa-anchor' },
+            { category: 'event', term: '독도의용수비대', meaning: '한국전쟁 혼란기에 일본의 침범을 막기 위해 결성된 민간 수비 단체입니다.', detail: '홍순칠 등 울릉도 주민들이 자발적으로 결성하여 실효적 지배의 기초를 닦았습니다.', icon: 'fa-shield-alt' },
+            { category: 'event', term: '평화선 (이승만 라인)', meaning: '1952년 이승만 대통령이 선포한 해양 주권 선언입니다.', detail: '독도를 포함한 인접 해양에 대한 대한민국 주권을 전 세계에 명확히 했습니다.', icon: 'fa-broadcast-tower' },
+            { category: 'event', term: '다케시마의 날', meaning: '일본 시마네현이 1905년 불법 편입을 기념해 제정한 날입니다.', detail: '매년 2월 22일 열리는 이 행사는 한일 외교 갈등의 주요 원인이 되고 있습니다.', icon: 'fa-calendar-times' }
+        ];
+
+        let currentFilter = 'all';
+
+        function renderTerms() {
+            const grid = document.getElementById('dictionaryGrid');
+            const empty = document.getElementById('emptyState');
+            const searchText = document.getElementById('searchInput').value.toLowerCase();
+            
+            grid.innerHTML = '';
+            
+            const filtered = terms.filter(item => {
+                const matchesCategory = currentFilter === 'all' || item.category === currentFilter;
+                const matchesSearch = item.term.toLowerCase().includes(searchText) || item.meaning.toLowerCase().includes(searchText);
+                return matchesCategory && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                empty.classList.remove('hidden');
+            } else {
+                empty.classList.add('hidden');
+                filtered.forEach(item => {
+                    const html = `
+                        <div class="term-card bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl group">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                    <i class="fas ${item.icon} text-xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-bold text-slate-900 mb-1">${item.term}</h3>
+                                    <p class="text-blue-600 text-sm font-medium mb-3">${item.meaning}</p>
+                                    <p class="text-slate-500 text-sm leading-relaxed border-t border-slate-50 pt-3">${item.detail}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += html;
+                });
+            }
+        }
+
+        function filterCategory(cat) {
+            currentFilter = cat;
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.classList.remove('active', 'text-white');
+                tab.classList.add('text-slate-500');
+            });
+            document.getElementById(`tab-${cat}`).classList.add('active');
+            document.getElementById(`tab-${cat}`).classList.remove('text-slate-500');
+            renderTerms();
+        }
+
+        function searchTerms() {
+            renderTerms();
+        }
+
+        // Initial render
+        renderTerms();
+    </script>
+</body>
+</html>
