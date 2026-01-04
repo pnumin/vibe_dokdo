@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>독도 정책 제안서 - 미래지향적 한일 관계 구축</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .section-header {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: #3b82f6;
+            border-radius: 2px;
+        }
+
+        .policy-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
+        .policy-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        .progress-bar {
+            height: 4px;
+            background: #3b82f6;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            z-index: 1000;
+        }
+
+        .chart-bar {
+            transition: width 1.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <div id="progress" class="progress-bar"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="font-black text-xl text-blue-700">DOKDO POLICY</div>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+                <a href="#intro" class="hover:text-blue-600 transition">서론</a>
+                <a href="#basis" class="hover:text-blue-600 transition">영유권 근거</a>
+                <a href="#conflict" class="hover:text-blue-600 transition">갈등 분석</a>
+                <a href="#proposals" class="hover:text-blue-600 transition">정책 제안</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="intro" class="pt-32 pb-20 px-4 bg-white border-b border-slate-200">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-bold mb-4">정책 제안서</span>
+            <h1 class="text-3xl md:text-5xl font-black mb-8 leading-tight">독도 문제의 평화적 해결과<br><span class="text-blue-600">미래지향적 한일 관계 구축</span></h1>
+            <p class="text-lg text-slate-600 leading-relaxed mb-10">
+                독도 문제는 단순한 영토 분쟁을 넘어 동아시아 평화를 가로막는 갈등 요인입니다. 
+                객관적 사실에 기반한 논리적 분석을 통해 소모적인 마찰을 끝내고 공동 번영의 초석을 다지기 위한 정책을 제안합니다.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-lg text-sm text-slate-700">
+                    <i class="fas fa-check-circle text-blue-500"></i> 조용한 외교
+                </div>
+                <div class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-lg text-sm text-slate-700">
+                    <i class="fas fa-check-circle text-blue-500"></i> 학술 공동 연구
+                </div>
+                <div class="flex items-center gap-2 px-4 py-2 bg-slate-100 rounded-lg text-sm text-slate-700">
+                    <i class="fas fa-check-circle text-blue-500"></i> 미래세대 교류
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: 역사적/지리적 근거 -->
+    <section id="basis" class="py-24 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-header">
+                <h2 class="text-3xl font-bold">1. 독도 영유권의 객관적 근거</h2>
+                <p class="text-slate-500 mt-2">역사적 사료와 지리적 사실이 증명하는 한국의 주권</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 한국 사료 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i class="fas fa-scroll text-blue-600"></i> 한국의 주요 사료
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-blue-200 pl-4">
+                            <span class="text-xs font-bold text-blue-600 uppercase">1454년</span>
+                            <h4 class="font-bold">세종실록지리지</h4>
+                            <p class="text-sm text-slate-600 mt-1">울릉도와 독도가 서로 멀지 않아 날씨가 맑으면 바라볼 수 있다고 기록.</p>
+                        </div>
+                        <div class="border-l-4 border-blue-200 pl-4">
+                            <span class="text-xs font-bold text-blue-600 uppercase">1900년</span>
+                            <h4 class="font-bold">대한제국 칙령 제41호</h4>
+                            <p class="text-sm text-slate-600 mt-1">독도를 울릉군의 관할로 공식 선포하여 영토주권을 근대 법체계에 확립.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 일본 사료 모순 -->
+                <div class="bg-slate-800 p-8 rounded-2xl shadow-sm text-white">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-blue-400">
+                        <i class="fas fa-search text-blue-400"></i> 일본 측 사료의 모순
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-blue-400 pl-4">
+                            <span class="text-xs font-bold text-blue-400 uppercase">1667년</span>
+                            <h4 class="font-bold">은주시청합기</h4>
+                            <p class="text-sm text-slate-300 mt-1">일본의 서쪽 경계를 오키섬으로 명확히 한정, 독도를 조선 영토로 인식.</p>
+                        </div>
+                        <div class="border-l-4 border-blue-400 pl-4">
+                            <span class="text-xs font-bold text-blue-400 uppercase">1877년</span>
+                            <h4 class="font-bold">태정관 지령</h4>
+                            <p class="text-sm text-slate-300 mt-1">일본 최고 국가기관이 "독도는 일본과 관계없다"고 공식 최종 확인.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Geography Stats -->
+            <div class="mt-12 bg-blue-600 rounded-2xl p-8 text-white flex flex-col md:flex-row justify-around items-center gap-8 text-center">
+                <div>
+                    <span class="text-blue-100 text-sm">울릉도-독도 거리</span>
+                    <div class="text-4xl font-black">87.4km</div>
+                    <p class="text-xs text-blue-200 mt-1">육안 관측 가능 (오키섬 불가)</p>
+                </div>
+                <div class="w-px h-12 bg-blue-400 hidden md:block"></div>
+                <div>
+                    <span class="text-blue-100 text-sm">오키섬-독도 거리</span>
+                    <div class="text-4xl font-black">157.5km</div>
+                    <p class="text-xs text-blue-200 mt-1">약 2배 가량 먼 거리</p>
+                </div>
+                <div class="w-px h-12 bg-blue-400 hidden md:block"></div>
+                <div>
+                    <span class="text-blue-100 text-sm">지질 구성</span>
+                    <div class="text-4xl font-black">조면암</div>
+                    <p class="text-xs text-blue-200 mt-1">울릉도와 동일 (오키섬은 편마암)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: 갈등 분석 및 인식 차이 -->
+    <section id="conflict" class="py-24 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-header">
+                <h2 class="text-3xl font-bold">2. 인식 차이 및 갈등 분석</h2>
+                <p class="text-slate-500 mt-2">문제 해결을 가로막는 근본적인 프레임의 간극</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h3 class="text-xl font-bold mb-6">한일 관계 개선을 위한 우선 과제 (2010 KBS/NHK)</h3>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-bold">한국: 독도 영유권 해결</span>
+                                <span class="text-sm font-bold text-blue-600">62%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-4">
+                                <div class="chart-bar bg-blue-600 h-4 rounded-full" style="width: 62%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm font-bold">일본: 정치적 대화</span>
+                                <span class="text-sm font-bold text-blue-600">37%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-4">
+                                <div class="chart-bar bg-blue-400 h-4 rounded-full" style="width: 37%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-8 text-slate-600 leading-relaxed italic border-l-4 border-slate-200 pl-4">
+                        "한국은 독도를 <strong class="text-slate-800">역사 정의의 회복</strong>으로 보지만, 일본은 <strong class="text-slate-800">현재의 정치/외교 사안</strong>으로 교육받습니다. 이 근본적 간극이 평행선의 원인입니다."
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="p-6 bg-red-50 rounded-xl border border-red-100">
+                        <h4 class="font-bold text-red-700 mb-2">현재 대응의 한계 (한국)</h4>
+                        <p class="text-sm text-slate-600">실효적 지배 중심 전략은 현상 유지에는 효과적이나, 국제적 공감대 확산 및 일본의 문제 제기 차단에는 한계가 있습니다.</p>
+                    </div>
+                    <div class="p-6 bg-amber-50 rounded-xl border border-amber-100">
+                        <h4 class="font-bold text-amber-700 mb-2">현재 대응의 한계 (일본)</h4>
+                        <p class="text-sm text-slate-600">ICJ 회부 등을 통한 '분쟁지역화' 전략은 평화적 해결보다 갈등을 증폭시키는 결과를 초래합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: 정책 제안 -->
+    <section id="proposals" class="py-24 px-4 bg-slate-900 text-white overflow-hidden">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold">3. 평화적 해결을 위한 다층적 정책 제안</h2>
+                <div class="w-16 h-1 bg-blue-500 mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Proposal 1 -->
+                <div class="policy-card bg-slate-800 p-8 rounded-2xl group">
+                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
+                        <i class="fas fa-diplomacy fa-shield-alt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">정부: '조용한 외교'</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> 공개 도발에 일일이 대응하는 확성기 외교 지양</li>
+                        <li class="flex gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> 영유권과 분리된 해양 자원 '지속가능 공동 연구' 제안</li>
+                        <li class="flex gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> 비영토적 협력 모델을 통한 신뢰 구축</li>
+                    </ul>
+                </div>
+
+                <!-- Proposal 2 -->
+                <div class="policy-card bg-slate-800 p-8 rounded-2xl group">
+                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
+                        <i class="fas fa-university text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">학술·교육: 객관성 확보</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> 한일역사공동연구위원회 재가동 및 투명한 공개</li>
+                        <li class="flex gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> 균형 잡힌 시각의 '한일 공동 역사 부교재' 개발</li>
+                        <li class="flex gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> 미래 세대의 역사 갈등 해결 능력 함양</li>
+                    </ul>
+                </div>
+
+                <!-- Proposal 3 -->
+                <div class="policy-card bg-slate-800 p-8 rounded-2xl group">
+                    <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-500 transition-colors">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">민간: 미래세대 교류</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> 독도/오키섬 해양생태 공동 캠프 활성화</li>
+                        <li class="flex gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> 동아시아 평화와 인권 관점의 시민 연대 지원</li>
+                        <li class="flex gap-2"><i class="fas fa-check text-blue-500 mt-1"></i> 감정적 대립을 넘어서는 건설적 대화 문화 확산</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: 결론 및 효과 -->
+    <section class="py-24 px-4 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-12">기대 효과</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <div class="text-blue-600 text-4xl font-black mb-2">01</div>
+                    <h4 class="font-bold mb-2">관계의 안정성</h4>
+                    <p class="text-sm text-slate-500">소모적 마찰 최소화 및 상호 예측 가능한 파트너십</p>
+                </div>
+                <div>
+                    <div class="text-blue-600 text-4xl font-black mb-2">02</div>
+                    <h4 class="font-bold mb-2">인식의 개선</h4>
+                    <p class="text-sm text-slate-500">미래 세대의 합리적 역사관 정립 및 적대감 해소</p>
+                </div>
+                <div>
+                    <div class="text-blue-600 text-4xl font-black mb-2">03</div>
+                    <h4 class="font-bold mb-2">평화의 자산</h4>
+                    <p class="text-sm text-slate-500">한일 갈등 관리를 통한 동아시아 전체의 안보 기여</p>
+                </div>
+            </div>
+
+            <div class="mt-20 p-10 bg-blue-50 rounded-3xl">
+                <p class="text-xl text-slate-700 italic font-medium leading-relaxed">
+                    "독도 주권을 수호하는 것과 한일 관계를 발전시키는 것은 양립 가능합니다. <br class="hidden md:block">
+                    상호 신뢰와 존중의 토대 위에서만 우리의 주권은 더욱 굳건해질 수 있습니다."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 py-12 px-4 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-slate-400 text-sm">
+                © 2024 Dokdo Policy Proposal Project. 본 제안서는 학술적 및 평화적 목적으로 작성되었습니다.
+            </div>
+            <div class="flex gap-6 text-slate-400">
+                <i class="fab fa-facebook hover:text-blue-600 transition"></i>
+                <i class="fab fa-twitter hover:text-blue-400 transition"></i>
+                <i class="fab fa-github hover:text-slate-800 transition"></i>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Progress Bar
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress").style.width = scrolled + "%";
+        };
+
+        // Reveal animations for bars
+        const observerOptions = {
+            threshold: 0.5
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.remove('w-0');
+                    // Actual widths are set in HTML inline style, but we can trigger it
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.chart-bar').forEach(bar => {
+            // Store initial width and set to 0
+            const finalWidth = bar.style.width;
+            bar.style.width = '0';
+            
+            const obs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        bar.style.width = finalWidth;
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            obs.observe(bar);
+        });
+    </script>
+</body>
+</html>
